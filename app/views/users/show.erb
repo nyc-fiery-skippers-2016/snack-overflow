@@ -1,9 +1,9 @@
 "hi"
-<h1><% @user.username %></h1>
+<h1><%= @user.username %></h1>
 <h2>Profile and Comment History</h2>
 
 <ol>
-<% @user.entries.each do |entry| %>
-  <li>Votes:<% entry.votes %>Entry:<%= entry.title %><li>
-    <% end %>
+  <% @user.questions.each do |question| %>
+    <li>Votes:<% question.votes %>question:<%= question.title %><li>
+  <% end %>
 </ol>

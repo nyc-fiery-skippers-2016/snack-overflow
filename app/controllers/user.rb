@@ -31,7 +31,8 @@ end
 #show page
 
 get '/users/:id' do
-	@user = User.find_by(username: params[:username])
+	@user = User.find_by(id: params[:id])
+	
 	erb :'users/show'
 end
 
