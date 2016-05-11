@@ -1,3 +1,8 @@
+<% if @errors %>
+  <ul>
+      <li><%= erb :'/_errors', locals: {error: error} %></li>
+  </ul>
+<% end %>
 
 <h1>Edit <%= @user.username%>'s profile:</h1>
 
