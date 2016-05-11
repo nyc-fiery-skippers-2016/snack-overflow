@@ -6,7 +6,7 @@ end
 post '/users' do
 	@user = User.new(params[:user])
 	if @user.save
-		redirect '/'
+		redirect '/questions'
 	else
 		erb :'users/new'
 	end
@@ -30,10 +30,10 @@ put '/users/edit' do
 end
 #show page
 
-get '/users/:id' do 
+get '/users/:id' do
 	@user = User.find_by(username: params[:username])
 	erb :'users/show'
-end 
+end
 
 #delete
 delete '/users/:id' do
