@@ -23,7 +23,7 @@
       <ul>
        <% if logged_in? %>
        <% @user = User.find_by(id: session[:user_id]) %>
-          <li id="logged-in"><a href="/users/<%= @user.id%>"><%=@user.name%>'s Info</a></li>
+          <li id="logged-in"><a href="/users/<%= @user.id%>"><%=@user.username%>'s Info</a></li>
           <form id="logged-in" action="/logout" method="post">
             <input type="hidden" name="_method" value="delete">
             <input type="submit" value="Logout"class="logout_button">
