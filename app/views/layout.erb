@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
@@ -15,9 +15,28 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Snack Overflow</title>
 </head>
 <body>
+  <header>
+      <nav id='first_menu'>
+      <ul>
+       <% if logged_in? %>
+       <% @user = User.find_by(id: session[:user_id]) %>
+          <li id="logged-in"><a href="/users/<%= @user.id%>"><%=@user.name%>'s Info</a></li>
+          <form id="logged-in" action="/logout" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Logout"class="logout_button">
+          </form>
+        <% else %>
+          <li class="nav-links"><a href="/users/new">sign up</a></li>
+          <li class="nav-links"><a id='nav-login' href="/login">login</a></li>
+          <li class="nav-links">tour</li>
+          <li class="nav-links">help</li>
+        <% end %>
+      </ul>
+    </nav>
+  </header>
   <%= yield %>
 </body>
 </html>
