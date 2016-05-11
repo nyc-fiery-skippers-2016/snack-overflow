@@ -11,7 +11,8 @@ end
 
 questions = 10.times.map do
 	Question.create!(:title      => Faker::Lorem.sentence,
-                  :body        => Faker::Lorem.paragraph)
+                  :body        => Faker::Lorem.paragraph,
+                  :user_id		=> rand(1..10)  )
                  
 end
 
