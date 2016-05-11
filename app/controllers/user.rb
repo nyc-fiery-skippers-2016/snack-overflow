@@ -25,7 +25,7 @@ put '/users/edit' do
 	if @user.save
 		redirect "/users/#{user.id}"
 	else
-		erb "/users/edit"
+		erb :"/users/edit"
 	end
 end
 #show page
