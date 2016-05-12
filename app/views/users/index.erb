@@ -1,0 +1,12 @@
+<h1>SnackOverflow Users</h1>
+
+<div class="user-browser">
+	<table>
+		<tbody>
+			<% @users.each do |user| %>
+				<td><%= user.username %>
+				<%= user.votes %></td>
+			<% end %>
+		</tbody>
+	</table>
+</div>

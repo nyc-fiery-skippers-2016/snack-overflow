@@ -1,3 +1,8 @@
+get '/users' do
+	@users = User.all
+	erb :'users/index'
+end
+
 #make new user
 get '/users/new' do
 	erb :'users/new'
