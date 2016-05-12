@@ -24,3 +24,45 @@ body {
 .form-button {
   border: 3px solid black;
 }
+
+#first_menu {
+  background-color: black;
+  display: block;
+  padding: 5px;
+}
+
+#first_menu li {
+  list-style: none outside none;
+  margin: 0 10px;
+  display: inline;
+}
+
+#first_menu a {
+  color: white;
+  text-decoration: none;
+}
+
+#second_menu {
+  display: block;
+  padding: 5px;
+}
+
+#second_menu li {
+  list-style: none outside none;
+  margin: 0 10px;
+  display: inline;
+}
+
+.second-nav-links {
+  float: right;
+}
+
+#second_menu a {
+  text-decoration: none;
+  color: black;
+}
+
+
+
+
+

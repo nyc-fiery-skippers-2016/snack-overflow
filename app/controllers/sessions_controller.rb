@@ -14,7 +14,7 @@ post '/login' do
     end
 end
 
-delete '/logout' do
+get '/logout' do
   session.clear
   redirect '/'
 end
