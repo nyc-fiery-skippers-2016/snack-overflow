@@ -1,10 +1,11 @@
 
-
 <h1 class="question_answer_title">Answers:</h1><br>
-<% @question.answers.each_with_index do |answer, index| %>
 
-<h3 class="answer_body"> <a href="/questions/<%=@question.id%>/answers/<%=answer.id%>"> <%=index + 1%>. <%=answer.body.capitalize%></a></h2>
+<% @question.answers.each do |answer| %>
 
-<p class="dot-color">==============================================</p></h3>
+  <p><h3 class="answer_body"><%=answer.body.capitalize%></h3><br>
+    <%= answer.answer_username %>
+  </p>
+
 <%end%>
 

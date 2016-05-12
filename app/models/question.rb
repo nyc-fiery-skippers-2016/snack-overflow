@@ -12,5 +12,9 @@ class Question < ActiveRecord::Base
     self.votes.sum(:value)
   end
 
+  def question_owner
+    current_user.id == self.user_id
+  end
+
 end
 

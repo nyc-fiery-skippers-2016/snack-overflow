@@ -1,8 +1,17 @@
-<h1><%= @user.username %></h1>
+<h1><%= @user.username.capitalize %></h1>
 <h2>Profile and Comment History</h2>
 
+<h3>Questions Asked</h3>
 <ol>
   <% @user.questions.each do |question| %>
-    <li>Votes:<% question.votes %>question:<%= question.title %><li>
+    <li><%= question.votes.count %> votes <a href="/questions/<%= question.id %>"><%= question.title %></a><li>
+  <% end %>
+</ol>
+
+
+<h3>Questions Answered</h3>
+<ol>
+  <% @user.answers.each do |answer| %>
+    <li><a href="/questions/<%= answer.question_id %>"> <%= answer.body %></a></li>
   <% end %>
 </ol>
