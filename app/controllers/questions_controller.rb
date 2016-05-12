@@ -47,11 +47,6 @@ post '/questions/:id/_vote' do
   redirect "/questions/#{question.id}"
 end
 
-# post '/questions/:id/_vote' do
-#   question = Question.find_by(id: params[:id])
-
-#   redirect "/questions/#{question.id}"
-# end
 
 # edit
 put '/questions/:id' do
