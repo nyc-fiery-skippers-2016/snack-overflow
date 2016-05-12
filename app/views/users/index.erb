@@ -1,11 +1,12 @@
 <h1>SnackOverflow Users</h1>
 
 <div class="user-browser">
-	<table>
-		<tbody>
+
 			<% @users.each do |user| %>
-				<td><%= user.username %>
-				<%= user.votes %></td>
+				<div class="user"><%= user.username %>
+          <img src="http://lorempixel.com/400/200"  alt="user_image" width="60">
+				<p>Questions:</p><%= user.questions.length %></div>
+        <p>Answers:</p><%= user.answers.length %></div>
 			<% end %>
 		</tbody>
 	</table>
