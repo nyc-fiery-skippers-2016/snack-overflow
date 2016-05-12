@@ -1,6 +1,6 @@
 
 
-<form method="post" action="/answers/<%=@answer.id%>">
+<form method="post" action="/questions/:question_id_/answers/:id/edit">
   <ul style="list-style-type:none">
     <li> <input type="text" name="body" value="<%=@answer.body%>"></li><br>
      <li><input type="submit" value="Submit Edit"></li>
