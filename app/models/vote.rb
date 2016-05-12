@@ -5,10 +5,10 @@ class Vote < ActiveRecord::Base
   belongs_to :comment
   belongs_to :votable, polymorphic: true
 
-  validates :user_id, presence :true
+  validates :user_id, presence: true
 
 
-  def voteUp
-    votes +=1
-  end
+  # def voteUp
+  #   votes +=1
+  # end
 end

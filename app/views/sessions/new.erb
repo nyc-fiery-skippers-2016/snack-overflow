@@ -1,5 +1,12 @@
 <div class="container">
   <h1>Please login</h1>
+
+<% if @errors %>
+  <ul>
+      <li><%= erb :'/_errors', locals: {error: error} %></li>
+  </ul>
+<% end %>
+
   <form action="/login" method="post" >
     Email:   <input type="text" name="email"><br>
     Password: <input type="password" name="password"><br>

@@ -1,0 +1,15 @@
+<h1><%= @question.title %></h1>
+<div class="votes">
+  <%= erb :_votes, layout: false, locals: {question: @question} %>
+</div>
+<p>
+  <%= @question.body %><br>
+
+  <a href="/questions/<%= @question.id %>/edit">Edit Question</a>
+
+  <form action="/questions/<%= @question.id %>" method="Post">
+    <input type="hidden" name="_method" value="Delete">
+    <input type="submit" value="Delete Question">
+  </form>
+</p>
+
