@@ -18,12 +18,15 @@ end
 post '/questions' do
   @question = Question.new(title: params[:title], body: params[:body], user_id: current_user.id)
 
+  if logged_in?
+    if @question.save
+      redirect '/questions'
 
-  if @question.save
-    redirect '/questions'
-
+    else
+      erb :'questions/new'
+    end
   else
-    erb :'questions/new'
+    redirect "/login"
   end
 end
 
@@ -37,8 +40,12 @@ get '/questions/:id' do
 end
 
 get '/questions/:id/edit' do
-  @question = Question.find(params[:id])
-  erb :'questions/edit'
+    @question = Question.find(params[:id])
+  if logged_in? && current_user.id == @question.user_id
+    erb :'questions/edit'
+  else
+    @error = ["Sorry, you don't have access to this page"]
+  end
 end
 
 
@@ -75,10 +82,13 @@ end
 delete '/questions/:id' do
   @question = Question.find(params[:id])
 
+  if logged_in? && current_user.id == @question.user_id
+    @question.destroy
 
-  @question.destroy
-
-  redirect '/questions'
+    redirect '/questions'
+  else
+    @error = ["Sorry, you don't have access to this page"]
+  end
 
 end
 

@@ -9,4 +9,8 @@ class Answer < ActiveRecord::Base
 
   validates :question_id, :user_id, :body, presence: true
 
+    def answer_username
+    User.find_by(id: self.user_id).username
+  end
+
 end
