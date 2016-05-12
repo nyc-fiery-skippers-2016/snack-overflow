@@ -16,14 +16,17 @@ end
 #1) get a form to submit an answer
 get '/questions/:question_id/answers/new' do
   @question = Question.find(params[:question_id])
+
   erb :'answers/new'
 end
 
 #2) execute intel received from new-answer form
-post '/questions/:question_id/answers/new' do
+post '/questions/:question_id/answers' do
   @question = Question.find(params[:question_id])
   # if logged_in?
+
    @answer = Answer.new(body: params[:body], user_id: current_user.id, question_id: params[:question_id])
+
     if @answer.save
       redirect "/questions/#{@question.id}"
     else

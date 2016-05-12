@@ -1,10 +1,9 @@
-<form method="post" action="/questions/<%=@question.id%>/answers/new">
-
-
+<h3> New Answer</h3>
+<% if logged_in? %>
+<form action="/questions/<%=@question.id%>/answers" method="post">
   <ul style="list-style-type:none">
-
     <li> <textarea type="text" name="body" placeholder="Answer Away!"></textarea></li><br>
-
      <li><input type="submit" value="Submit an Answer!"></li>
   </ul>
 </form>
+<% end %>
