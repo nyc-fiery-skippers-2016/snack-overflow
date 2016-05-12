@@ -1,3 +1,6 @@
+<h1 class="question_answer_title">Question</h1>
+<text class="question_body"> <%=@question.body%></text>
+
 <form method="post" action="/questions/<%=:question_id%>/answers/<%=:id%>/edit">
 <input type="hidden" name="_method" value="put"><br>
 
@@ -5,7 +8,7 @@
 
     <input type="hidden" name="answer[id]" value=<%=@answer.id %>
 
-    <li> <textarea type="text" name="answer[body]" placeholder= "<%=@answer.body%>"></textarea></li><br>
+    <li> <input type="text" name="answer[body]" value= "<%=@answer.body%>"></li><p>
 
      <li><input type="submit" value="Edit Your Response"></li>
   </ul>

@@ -1,6 +1,10 @@
-<h2 class="question_answer_title">Answer</h2>
+<h1 class="question_answer_title">Question</h1>
+<%=@question.body%>
 
-<h2> <a href="/questions/<%=@question.id%>/answers/<%=@answer.id%>"><%=@answer.body.capitalize%></a></h2>
+
+<h1 class="question_answer_title">Answer</h1>
+
+<h2> <%=@answer.body.capitalize%></h2>
 
 <a href="/questions/<%=@question.id%>/answers/<%=@answer.id%>/edit">Edit This Response</a>
 

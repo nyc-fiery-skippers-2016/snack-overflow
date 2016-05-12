@@ -21,11 +21,11 @@ end
 
 #2) execute intel received from new-answer form
 post '/questions/:question_id/answers/new' do
-  # @question = Question.find(params[:question_id])
+  @question = Question.find(params[:question_id])
   # if logged_in?
    @answer = Answer.new(body: params[:body], user_id: current_user.id, question_id: params[:question_id])
     if @answer.save
-      redirect "/questions/#{@question.id}/answers"
+      redirect "/questions/#{@question.id}"
     else
       erb :'answers/new'
     end
@@ -39,7 +39,7 @@ end
 
 #1) get an answer form to edit
 get '/questions/:question_id/answers/:id/edit' do
-  # @question = Question.find_by(id: params[:question_id])
+  @question = Question.find_by(id: params[:question_id])
   @answer = Answer.find(params[:id])
   erb :'/answers/edit'
 end
@@ -51,7 +51,7 @@ put '/questions/:question_id/answers/:id/edit' do
    @answer = Answer.find_by(id: params[:answer][:id])
     @answer.assign_attributes(body: params[:answer][:body])
     if @answer.save
-      redirect "/questions/#{@answer.question_id}/answers"
+      redirect "/questions/#{@answer.question_id}"
     else
       erb :'/answers/edit'
     end
@@ -66,7 +66,7 @@ delete '/questions/:question_id/answers/:id' do
   @question = Question.find(params[:question_id])
    @answer = Answer.find_by(id: params[:id])
    @answer.destroy
-   redirect "/questions/#{@question.id}/answers"
+   redirect "/questions/#{@question.id}"
 end
 
 
