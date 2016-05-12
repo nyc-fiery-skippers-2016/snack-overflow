@@ -1,0 +1,16 @@
+<form id='up-vote' method="post" action='/comments/<%= comment.id %>/vote'>
+  <input type="hidden" name="votes[voteable_type]" value="voteable_type">
+  <input type="hidden" name="votes[voteable_id]" value="voteable_id">
+  <button type="submit" name="submit_param" value="submit_value" id='button-up'>
+</form>
+
+<%= comment.vote.value %>
+
+<form id='down-vote'>
+   <button type="submit" name="submit_param" value="submit_value" id='button-down'>
+</form>
+
+
+post '/question/:id/vote' do
+  question = Q.find_by(params[:id])
+  question.votes.create(value: 1)

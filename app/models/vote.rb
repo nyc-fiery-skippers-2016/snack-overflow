@@ -6,4 +6,9 @@ class Vote < ActiveRecord::Base
   belongs_to :votable, polymorphic: true
 
   validates :user_id, presence :true
+
+
+  def voteUp
+    votes +=1
+  end
 end
