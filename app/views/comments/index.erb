@@ -5,9 +5,10 @@
 <% end %>
 </ul>
 
+<% if logged_in? %>
+  <a id="question-comment-link" href="/questions/<%= @question.id %>/comments/new">Add Comment</a>
 
-<a id="question-comment-link" href="/questions/<%= @question.id %>/comments/new">Add Comment</a>
+  <div id="question-comment-form-holder">
 
-<div id="question-comment-form-holder">
-
-</div>
+  </div>
+<% end %>
