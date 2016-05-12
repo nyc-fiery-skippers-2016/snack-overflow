@@ -47,19 +47,20 @@ end
 post '/questions/:id/_vote' do
   question = Question.find_by(id: params[:id])
 
-  if params[:up_vote]
+  if params[:votable_type]
   question.votes.create(value: 1, user_id: current_user.id, votable_id: params[:votable_id], votable_type: params[:votable_type])
     if request.xhr?
-      content_type :json
-      question.votes.sum(:value).to_json
+      # content_type :html
+      question.votes.sum(:value).to_s
+      # binding.pry
     else
+      # binding.pry
       redirect "/questions"
     end
   else
-    question.votes.create(value: -1, user_id: current_user.id, votable_id: params[:votable_id], votable_type: params[:votable_type])
+    question.votes.create(value: -1, user_id: current_user.id, votable_id: params[:votable_id], votable_type: params[:down_vote])
      if request.xhr?
-      content_type :json
-      question.votes.sum(:value).to_json
+      question.votes.sum(:value).to_s
     else
       redirect "/questions"
     end

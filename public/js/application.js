@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 // ajax for vote on question
-  $(".votes").on('submit', 'up-vote', function(event) {
+  $("#up-vote").on('submit', function(event){
     event.preventDefault();
 
     var $target = $(event.target);
@@ -12,7 +12,31 @@ $(document).ready(function() {
       data: $target.serialize()
     });
       request.done(function(response){
-      $votes.text(response);
+      // $votes.text(response);
+      $('#number').replaceWith($(response).find('.vote-count').text());
+      // $(response).find('.vote-count').text();
+
+    });
+      request.fail(function(){
+      alert("Code failed.");
+    });
+});
+
+  $("#down-vote").on('submit', function(event){
+    event.preventDefault();
+
+    var $target = $(event.target);
+    var $votes = $target.parents('aside').find('.vote-count');
+    var request = $.ajax({
+      url: $target.attr('action'),
+      method: 'post',
+      data: $target.serialize()
+    });
+      request.done(function(response){
+      // $votes.text(response);
+      $('#number').replaceWith($(response).find('.vote-count').text());
+      // $(response).find('.vote-count').text();
+
     });
       request.fail(function(){
       alert("Code failed.");
@@ -53,4 +77,3 @@ $(document).ready(function() {
     });
   });
  });
-
