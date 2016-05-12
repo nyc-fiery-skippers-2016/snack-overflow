@@ -1,7 +1,34 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  $("#question-comment-link").on("click", function(event){
+    event.preventDefault();
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-});
+    var $target = $(event.target)
+
+    requestOptions = {
+      url: $target.attr("href")       
+    }
+
+    $.ajax(requestOptions).done(function(response){
+        $("#question-comment-form-holder").append(response);
+        $("#question-comment-link").hide();
+    });
+  }); 
+
+  $("#question-comment-form-holder").on("submit", "#question-comment-form", function(event){
+    event.preventDefault();
+
+    var $target = $(event.target)
+   
+    requestOptions = {
+      url: $target.attr("action"),
+      method: $target.attr("method"),
+      data: $target.serialize()
+    }
+
+    $.ajax(requestOptions).done(function(response){
+      $("#question-comment-list").append(response);
+      $("#question-comment-form-holder").empty();
+      $("#question-comment-link").show();
+    });
+  });
+ });

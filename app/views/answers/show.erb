@@ -1,0 +1,16 @@
+<h2 class="question_answer_title">Answer</h2>
+
+<h2> <a href="/questions/<%=@question.id%>/answers/<%=@answer.id%>"><%=@answer.body.capitalize%></a></h2>
+
+<a href="/questions/<%=@question.id%>/answers/<%=@answer.id%>/edit">Edit This Response</a>
+
+
+
+
+<form method="post" action="/questions/<%=@question.id%>/answers/<%=@answer.id%>">
+  <input type="hidden" name="_method" value="delete"><br>
+   <input type="submit" value="Delete Answer">
+
+</form>
+
+

@@ -19,6 +19,8 @@
 </head>
 <body>
   <header>
+    <div id="main_photo"><img src="../css/snack_overflow_1.jpg" alt="Snack Overflow Main Image"></div>
+
       <nav id='first_menu'>
       <ul>
        <% if logged_in? %>
@@ -35,6 +37,7 @@
         <% end %>
       </ul>
     </nav>
+
     <nav id='second_menu'>
       <ul>
         <li id="cookie_pic"><img src="../images/#"></li>
@@ -45,7 +48,7 @@
         <li class="second-nav-links"><a id='nav-users' href='/users'>Users</a></li>
        </ul>
     </nav>
-  </header>
-  <%= yield %>
+  </header><main>
+  <%= yield %></main>
 </body>
 </html>
