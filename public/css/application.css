@@ -1,3 +1,4 @@
+
 body {
   padding: 20px;
 }
@@ -15,6 +16,26 @@ body {
   font-size: 20px;
 }
 
+.question_answer_title {
+  color: #008B8B;
+}
+
+.question_body {
+  color: #8B8378;
+}
+
+.answer_body {
+  color: #8B864E;
+}
+
+.dot-color {
+  color: #333333;
+}
+
+#main_photo {
+  text-align: center;
+}
+
 .form > textarea {
   margin: 15px;
   font-size: 20px;
@@ -24,3 +45,9 @@ body {
 .form-button {
   border: 3px solid black;
 }
+
+main {
+text-align: center;
+  font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+}
+
