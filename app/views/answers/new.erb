@@ -1,10 +1,13 @@
-<%=@question.title%>
-<%=@question.body%>
+<h1 class="question_answer_title">Question:</h1> <p><h1 class="question_body"> <%=@question.title%></h1>
+<h2 class="question_body"><%=@question.body%></h2><br>
 
 <form method="post" action="/questions/:question_id/answers/new">
+
+
   <ul style="list-style-type:none">
 
-    <li> <input type="text" name="body" placeholder="Answer Away!"></li><br>
+    <li> <input type="text" name="body" placeholder="Answer Away!"></textarea></li><br>
+
      <li><input type="submit" value="Submit"></li>
   </ul>
 </form>

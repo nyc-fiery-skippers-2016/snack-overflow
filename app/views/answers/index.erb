@@ -1,6 +1,11 @@
+<h1 class="question_answer_title">Question:</h1> <p><h1 class="question_body"> <%=@question.title%></h1>
+<h2 class="question_body"><%=@question.body%></h2><br>
 
 
-<% @answer.each_with_index do |answer| %>
-<%=index + 1%>. <%=answer.body%>
+<h1 class="question_answer_title">Answers:</h1><br>
+<% @question.answers.each_with_index do |answer, index| %>
+<h3 class="answer_body"> <a href="/questions/<%=@question.id%>/answers/<%=answer.id%>"> <%=index + 1%>. <%=answer.body.capitalize%></a></h2>
+
+<p class="dot-color">==============================================</p></h3>
 <%end%>
 

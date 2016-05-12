@@ -1,13 +1,19 @@
-<h2><%=@answer.body%></h2>
+<h1 class="question_answer_title">Question:</h1> <p><h1 class="question_body"> <%=@question.title%></h1>
+<h2 class="question_body"><%=@question.body%></h2><br>
 
-<form method="get" action="/questions/:question_id_/answers/:id/edit">
-  <input type="submit" value="Edit">
-</form>
+<h2 class="question_answer_title">Answer</h2>
 
-<form method="post" action="/questions/:question_id/answers/:id">
-  <input type="hidden" name="_method" value="delete"></li>
-     <li><input type="submit" value="Delete"></li>
-  </ul>
+<h2> <a href="/questions/<%=@question.id%>/answers/<%=@answer.id%>"><%=@answer.body.capitalize%></a></h2>
+
+<a href="/questions/<%=@question.id%>/answers/<%=@answer.id%>/edit">Edit This Response</a>
+
+
+
+
+<form method="post" action="/questions/<%=@question.id%>/answers/<%=@answer.id%>">
+  <input type="hidden" name="_method" value="delete"><br>
+   <input type="submit" value="Delete Answer">
+
 </form>
 
 

@@ -1,9 +1,13 @@
+<form method="post" action="/questions/<%=:question_id%>/answers/<%=:id%>/edit">
+<input type="hidden" name="_method" value="put"><br>
 
-
-<form method="post" action="/questions/:question_id_/answers/:id/edit">
   <ul style="list-style-type:none">
-    <li> <input type="text" name="body" value="<%=@answer.body%>"></li><br>
-     <li><input type="submit" value="Submit Edit"></li>
+
+    <input type="hidden" name="answer[id]" value=<%=@answer.id %>
+
+    <li> <textarea type="text" name="answer[body]" placeholder= "<%=@answer.body%>"></textarea></li><br>
+
+     <li><input type="submit" value="Edit Your Response"></li>
   </ul>
 </form>
 
