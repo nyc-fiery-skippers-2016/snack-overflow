@@ -1,12 +1,12 @@
 
 get '/questions/:question_id/comments/new' do 
   @question = Question.find_by(id: params[:question_id])
-  erb :'comment/new'
+  erb :'comments/new'
 end
 
 get '/anwers/:answer_id/comments/new' do 
   @answer = Answer.find_by(id: params[:answer_id])
-  erb :'comment/new'
+  erb :'comments/new'
 end
 
 
@@ -27,7 +27,7 @@ post '/questions/:id/comments' do
   if @comment.save
     redirect "/questions/#{@question.id}"
   else
-    erb :'comment/_new_question_comment_form'
+    erb :'comments/_new_question_comment_form'
   end
 end
 
@@ -37,6 +37,6 @@ post '/answers/:id/comments' do
   if @comment.save
     redirect "/questions/#{@comment.commentable.question_id}"
   else
-    erb :'comment/_new_answer_comment_form'
+    erb :'comments/_new_answer_comment_form'
   end
 end
