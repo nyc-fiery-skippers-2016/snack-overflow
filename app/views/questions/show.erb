@@ -1,5 +1,9 @@
 <h1><%= @question.title %></h1>
 
+<div class="votes">
+  <%= erb :_votes, layout: false, locals: {question: @question} %>
+</div>
+
 <p>
   <%= @question.body %><br>
 
@@ -10,5 +14,7 @@
     <input type="submit" value="Delete Question">
   </form>
 </p>
+
   <%= erb :"comments/index" %>
+
 
