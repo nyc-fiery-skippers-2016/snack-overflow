@@ -1,17 +1,17 @@
+<aside class='votes'>
+  <form id='up-vote' method="post" action='/questions/<%= question.id %>/_vote'>
+    <input type="hidden" name="up_vote" value="question">
+    <input type="hidden" name="votable_id" value="<%=question.id%>">
+    <input type="image" name="up_image" src="/images/up_arrow.png" width="20">
+  </form>
 
-<form id='up-vote' method="post" action='/questions/<%= question.id %>/_vote'>
-  <input type="hidden" name="up_vote" value="question">
-  <input type="hidden" name="votable_id" value="<%=question.id%>">
-  <input type="image" name="up_image" src="/images/up_arrow.png" width="20">
-</form>
+  <div class=vote-count><%= question.votes.sum(:value) %> Votes</div>
 
-<%= question.votes.sum(:value) %> Votes
-
-<form id='down-vote' method="post" action='/questions/<%= question.id %>/_vote'>
-  <input type="hidden" name="down_vote" value="question">
-  <input type="hidden" name="votable_id" value="<%=question.id%>">
-  <input type="image" name="down_image" src="/images/down_arrow.png" width="20">
-</form>
-
+  <form id='down-vote' method="post" action='/questions/<%= question.id %>/_vote'>
+    <input type="hidden" name="down_vote" value="question">
+    <input type="hidden" name="votable_id" value="<%=question.id%>">
+    <input type="image" name="down_image" src="/images/down_arrow.png" width="20">
+  </form>
+<aside>
 
 

@@ -1,7 +1,18 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  $(".votes").on('submit', 'up-vote', function(event) {
+    event.preventDefault();
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+    var $target = $(event.target);
+    var $votes = $target.parents('aside').find('.vote-count');
+    var request = $.ajax({
+      url: $target.attr('action'),
+      method: 'post',
+      data: $target.serialize()
+    });
+      request.done(function(response){
+      $votes.text(response);
+    });
+      request.fail(function(){
+      alert("Code failed.");
+    });
 });

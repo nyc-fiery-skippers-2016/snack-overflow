@@ -49,8 +49,20 @@ post '/questions/:id/_vote' do
 
   if params[:up_vote]
   question.votes.create(value: 1, user_id: current_user.id, votable_id: params[:votable_id], votable_type: params[:votable_type])
+    if request.xhr?
+      content_type :json
+      question.votes.sum(:value).to_json
+    else
+      redirect "/questions"
+    end
   else
     question.votes.create(value: -1, user_id: current_user.id, votable_id: params[:votable_id], votable_type: params[:votable_type])
+     if request.xhr?
+      content_type :json
+      question.votes.sum(:value).to_json
+    else
+      redirect "/questions"
+    end
   end
   redirect "/questions/#{question.id}"
 end
