@@ -1,8 +1,9 @@
 <h3>Comments</h3>
 <% @comments.each do |comment| %>
   <ul>
-    <li><%= comment.body %></li>
+    <li><p><%= comment.body %><br> <a href="/users/<%= comment.user_id %>"><%= comment.comment_username %></a></p></li>
   </ul>
 <% end %>
 
-<a href="/comments/new">Add Comment</a>
+
+<a href="/questions/<%= @comments.first.commentable_id %>/comments/new">Add Comment</a>
