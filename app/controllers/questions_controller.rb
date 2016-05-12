@@ -34,19 +34,25 @@ get '/questions/:id/edit' do
   erb :'questions/edit'
 end
 
-# vote route
+# vote routes
 
 post '/questions/:id/_vote' do
   question = Question.find_by(id: params[:id])
+
+  if params[:up_vote]
   question.votes.create(value: 1, user_id: current_user.id, votable_id: params[:votable_id], votable_type: params[:votable_type])
+  else
+    question.votes.create(value: -1, user_id: current_user.id, votable_id: params[:votable_id], votable_type: params[:votable_type])
+  end
   redirect "/questions/#{question.id}"
 end
 
 # post '/questions/:id/_vote' do
 #   question = Question.find_by(id: params[:id])
-#   question.votes.create(value: -1, user: current_user.id, votable_id: params[:votable_id}, votable_type: params[:votable_type])
+
 #   redirect "/questions/#{question.id}"
 # end
+
 # edit
 put '/questions/:id' do
   @question = Question.find(params[:id])
