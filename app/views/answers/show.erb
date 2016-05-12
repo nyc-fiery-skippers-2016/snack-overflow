@@ -1,0 +1,13 @@
+<h2><%=@answer.body%></h2>
+
+<form method="get" action="/answers/<%=@answers.id%>/edit">
+  <input type="submit" value="Edit">
+</form>
+
+<form method="post" action="/answers/<%=@answers.id%>">
+  <input type="hidden" name="_method" value="delete"></li>
+     <li><input type="submit" value="Delete"></li>
+  </ul>
+</form>
+
+
