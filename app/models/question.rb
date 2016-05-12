@@ -8,5 +8,9 @@ class Question < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :tags, through: :question_tags
 
+  def totalVotes
+    self.votes.sum(:value)
+  end
+
 end
 

@@ -1,6 +1,13 @@
 <h1>Questions</h1>
 <% @questions.each do |question| %>
   <ul>
-    <li><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
+    <li>
+      <div class="votes">
+        <%= question.totalVotes%>
+      </div>
+      <div class="question">
+        <a href="/questions/<%= question.id %>"><%= question.title %></a>
+      </div>
+    </li>
   </ul>
 <% end %>
