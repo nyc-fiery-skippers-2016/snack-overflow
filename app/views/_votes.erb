@@ -1,14 +1,14 @@
 <form class="form" id='up-vote' method="post" action='/questions/<%= question.id %>/_vote'>
-  <input type="hidden" name="votes[voteable_type]" value="Question">
-  <input type="hidden" name="votes[voteable_id]" value="<%=question.id%>">
+  <input type="hidden" name="votable_type" value="Question">
+  <input type="hidden" name="votable_id" value="<%=question.id%>">
   <input type="image" name="up_image" source="#" id='button-up'>
 </form>
 
-<%= question.votes[:value] %>
+<%= question.votes.sum(:value) %>
 
 <form class="form" id='down-vote' method="post" action='/questions/<%= question.id %>/_vote'>
-  <input type="hidden" name="votes[voteable_type]" value="">
-  <input type="hidden" name="votes[voteable_id]" value="<%=question.id%>">
+  <input type="hidden" name="votable_type" value="Question">
+  <input type="hidden" name="votable_id" value="<%=question.id%>">
   <input type="image" name="down_image" source="#" id='button-down'>
 </form>
 
