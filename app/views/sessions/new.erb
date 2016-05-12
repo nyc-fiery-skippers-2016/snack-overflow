@@ -3,7 +3,7 @@
 
 <% if @errors %>
   <ul>
-      <li><%= erb :'/_errors', locals: {error: error} %></li>
+      <li><%= erb :'/_errors', locals: {error: @error} %></li>
   </ul>
 <% end %>
 
@@ -13,4 +13,4 @@
     <input type="submit" value="Login" class='form'>
   </form>
   <br>
-</div>
+</div>  
