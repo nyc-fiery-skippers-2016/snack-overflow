@@ -7,4 +7,5 @@ class Vote < ActiveRecord::Base
 
   validates :user_id, presence: true
 
+
 end
