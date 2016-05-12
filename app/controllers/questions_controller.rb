@@ -1,4 +1,6 @@
+
 # index
+
 get '/' do
   redirect '/questions'
 end
@@ -16,8 +18,10 @@ end
 post '/questions' do
   @question = Question.new(title: params[:title], body: params[:body], user_id: current_user.id)
 
+
   if @question.save
     redirect '/questions'
+
   else
     erb :'questions/new'
   end
@@ -26,13 +30,17 @@ end
 get '/questions/:id' do
   @question = Question.find_by(id: params[:id])
 
+  @comments = @question.comments
+
   erb :'questions/show'
+
 end
 
 get '/questions/:id/edit' do
   @question = Question.find(params[:id])
   erb :'questions/edit'
 end
+
 
 # vote routes
 
@@ -49,13 +57,16 @@ end
 
 
 # edit
+
 put '/questions/:id' do
   @question = Question.find(params[:id])
 
   @question.assign_attributes(params[:question])
 
   if @question.save
+
     redirect '/questions'
+
   else
     erb :'questions/edit'
   end
@@ -64,7 +75,10 @@ end
 delete '/questions/:id' do
   @question = Question.find(params[:id])
 
+
   @question.destroy
 
   redirect '/questions'
+
 end
+
