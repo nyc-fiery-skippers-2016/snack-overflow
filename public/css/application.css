@@ -26,6 +26,7 @@ body {
 
 .answer_body {
   color: #8B864E;
+  border-bottom: 2px dotted black;
 }
 
 .dot-color {
@@ -84,13 +85,34 @@ body {
   color: black;
 }
 
+#question-index {
+ width: 40%;
+ margin-left: 30%;
+}
 
+.votes {
+  float: left;
+  display: inline;
+  margin-right: 15px;
+}
 
+#question-index ul {
+  list-style: none;
+}
+
+.question a {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.question-asker {
+
+}
 
 
 
 main {
-text-align: center;
+
   font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
 }
 
