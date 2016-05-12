@@ -1,0 +1,9 @@
+<h3>Create a Question Comment</h3>
+
+<form class="form" action="/questions/<%= @question.id %>/comment/new" method="Post">
+  <input type="hidden" name="comment[commentable_type]" value="Question">
+  <input type="hidden" name="comment[commentable_id]" value="<%= @question.id %>">
+  <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
+  <textarea type="text" rows="3" cols="50" name="comment[body]" placeholder="Enter comment"></textarea>
+  <input class="form-button" type="submit" value="Post Comment">
+</form>
