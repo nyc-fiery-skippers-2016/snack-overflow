@@ -12,5 +12,13 @@ class Question < ActiveRecord::Base
     self.votes.sum(:value)
   end
 
+  def question_username
+    if User.find_by(id: self.user_id) != nil
+    	User.find_by(id: self.user_id).username
+    else
+    	"user"
+  	end
+  end
+
 end
 

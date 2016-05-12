@@ -1,13 +1,18 @@
+<div id="question-index"
 <h1>Questions</h1>
 <% @questions.each do |question| %>
   <ul>
-    <li>
+    <li class="individual-question">
       <div class="votes">
-        <%= question.totalVotes%>
+        <%= question.totalVotes%> votes
       </div>
       <div class="question">
         <a href="/questions/<%= question.id %>"><%= question.title %></a>
       </div>
+      <div class="question-asker">
+        asked by <a href="/users/<%= question.user_id %>"><%=question.question_username%></a>
+      </div>
     </li>
   </ul>
 <% end %>
+</div>
