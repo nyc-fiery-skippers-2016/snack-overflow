@@ -7,9 +7,9 @@
 </ul>
 
 <% if logged_in? %>
-  <a class="answer-comment-link" href="/answers/<%= answer.id %>/comments/new">Add Comment</a>
+  <a id="answer-comment-link" href="/answers/<%= answer.id %>/comments/new">Add Comment</a>
 
-  <div class="answer-comment-form-holder">
+  <div id="answer-comment-form-holder">
 
   </div>
 <% end %>
