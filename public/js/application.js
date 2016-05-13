@@ -18,7 +18,7 @@ $(document).ready(function() {
 
     });
       request.fail(function(){
-      alert("Code failed.");
+      alert("Nice Try.");
     });
 });
 

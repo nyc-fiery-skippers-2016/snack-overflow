@@ -59,7 +59,6 @@ post '/questions/:id/_vote' do
     if request.xhr?
       # content_type :html
       question.votes.sum(:value).to_s
-      # binding.pry
     else
       # binding.pry
       redirect "/questions"
