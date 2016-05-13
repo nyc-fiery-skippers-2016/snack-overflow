@@ -25,10 +25,16 @@ post '/questions/:question_id/answers' do
    @answer = Answer.new(body: params[:body], user_id: current_user.id, question_id: params[:question_id])
 
     if @answer.save
-      redirect "/questions/#{@question.id}"
+      if request.xhr?
+        binding.pry
+      erb :"questions/show"
+      else
+        erb :'answers/new'
+      end
     else
       erb :'answers/new'
     end
+
 end
 
 #edit answer entry. 2 steps:
