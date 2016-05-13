@@ -1,4 +1,4 @@
-<h1><%= @question.title %></h1>
+<h1><text class="question_answer_title">Question:</text> <%= @question.title %></h1>
 
 <div class="votes">
   <%= erb :_votes, layout: false, locals: {question: @question} %>
