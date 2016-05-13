@@ -8,6 +8,7 @@ end
 get '/questions/:question_id/answers/:id' do
    @question = Question.find(params[:question_id])
    @answer = Answer.find(params[:id])
+   @a_comments = @answer.comments
    erb :'answers/show'
 end
 
