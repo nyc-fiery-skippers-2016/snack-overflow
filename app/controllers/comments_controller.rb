@@ -11,7 +11,12 @@ end
 
 get '/answers/:answer_id/comments/new' do 
   @answer = Answer.find_by(id: params[:answer_id])
-  erb :'comments/_new_answers_comment_form'
+
+  if request.xhr?  
+    erb :'comments/_new_answers_comment_form', layout: false, locals: {answer: @answer}
+  else
+    erb :'comments/_new_answers_comment_form'
+  end
 end
 
 
@@ -42,8 +47,10 @@ post '/answers/:id/comments' do
 
   @comment = Comment.new(params[:comment])
   if @comment.save
-    redirect "/questions/#{@comment.commentable.question_id}"
-  else
-    erb :'comments/_new_answer_comment_form'
+    if request.xhr?
+      erb :'comments/_comment_partial', layout: false, locals: {comment: @comment}
+    else
+      erb :'comments/_new_answer_comment_form'
+    end
   end
 end

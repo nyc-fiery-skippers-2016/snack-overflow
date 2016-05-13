@@ -76,4 +76,23 @@ $(document).ready(function() {
       $("#question-comment-link").show();
     });
   });
+
+  $(".answer_box").on('submit', function(event){
+    event.preventDefault();
+
+    var $target = $(event.target)
+    var $url = $target.attr('action')
+    var $type = $target.attr('method')
+
+    requestOptions = {
+      type: $type,
+      url: $url,
+      data: $target.serialize()
+    }
+
+    ajax(requestOptions).done(function(response) {
+      $(".answer_body").append(response);
+      $(".answer_box").hide();
+    });
+  });
  });
