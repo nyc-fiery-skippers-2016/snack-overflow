@@ -1,9 +1,10 @@
 <h3>Create An Answer Comment</h3>
 
-<form class="form" action="/answers/<%= @answer.id %>/comment/new" method="Post">
+<form class="form" action="/answers/<%= @answer.id %>/comments" method="Post">
   <input type="hidden" name="comment[commentable_type]" value="Answer">
   <input type="hidden" name="comment[commentable_id]" value="<%= @answer.id %>">
   <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
   <textarea type="text" rows="3" cols="50" name="comment[body]" placeholder="Enter comment"></textarea>
   <input class="form-button" type="submit" value="Post Comment">
 </form>
+ 

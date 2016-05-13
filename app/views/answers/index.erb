@@ -5,6 +5,7 @@
 
   <p><h3 class="answer_body"><%=answer.body.capitalize%></h3><br>
     <%= answer.answer_username %>
+    <%= erb :"/comments/comment_index", layout: false, locals: {answer: answer}%>
   </p>
 
 <%end%>

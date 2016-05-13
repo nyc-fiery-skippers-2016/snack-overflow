@@ -9,9 +9,9 @@ get '/questions/:question_id/comments/new' do
   end
 end
 
-get '/anwers/:answer_id/comments/new' do 
+get '/answers/:answer_id/comments/new' do 
   @answer = Answer.find_by(id: params[:answer_id])
-  erb :'comments/_new_answer_comment_form'
+  erb :'comments/_new_answers_comment_form'
 end
 
 
@@ -23,7 +23,7 @@ end
 
 get '/answers/:answer_id/comments' do
 	@answer = Answer.find_by(id: params[:answer_id])
-	@comments = @anwer.comments
+	@comments = @answer.comments
 	erb :'comments/index'
 end
 
