@@ -85,7 +85,7 @@ put '/questions/:id' do
 
   if @question.save
 
-    redirect '/questions'
+    redirect "/questions/#{@question.id}"
 
   else
     erb :'questions/edit'
@@ -98,7 +98,7 @@ delete '/questions/:id' do
   if logged_in? && current_user.id == @question.user_id
     @question.destroy
 
-    redirect '/questions'
+    redirect "/users/#{@question.user_id}"
   else
     @error = ["Sorry, you don't have access to this page"]
   end
